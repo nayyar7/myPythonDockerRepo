@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
       - name: mypythondockerrepo
-        image: acrtestpractice.azurecr.io/nayyar7/mypythondockerrepo
-        imagePullPolicy: Always
+        image: acrtestpractice.azurecr.io/nayyar7/mypythondockerrepo:#{Build.BuildId}#
         ports:
         - containerPort: 5000
 # service type loadbalancer       
