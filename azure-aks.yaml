@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mypythondockerrepo
-        image: acrnayyar.azurecr.io/nayyar7/mypythondockerrepo
+        image: acrnayyar.azurecr.io/new-test-file
         ports:
         - containerPort: 5000
   strategy:
