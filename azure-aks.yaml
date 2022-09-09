@@ -15,7 +15,6 @@ spec:
       containers:
       - name: mypythondockerrepo
         image: acrnayyar.azurecr.io/nayyar7/mypythondockerrepo
-        imagePullPolicy: Always
         ports:
         - containerPort: 5000
   strategy:
