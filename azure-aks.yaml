@@ -14,14 +14,9 @@ spec:
     spec:
       containers:
       - name: mypythondockerrepo
-        image: acrnayyar.azurecr.io/new-test-file
+        image: acrnayyar.azurecr.io/nayyar7/mypythondockerrepo
         ports:
         - containerPort: 5000
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 25%
-      maxSurge: 25%
 # service type loadbalancer       
 ---
 apiVersion: v1
