@@ -41,9 +41,7 @@ spec:
   - host: nayyar-app.com
     http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
+      - backend:
           service:
             name: my-python-app-svc
             port:
