@@ -37,9 +37,6 @@ kind: Ingress
 metadata:
   name: my-python-app-ingress
 spec:
-  tls:
-   - hosts:
-     - nayyar-app.com
   rules:
   - host: nayyar-app.com
     http:
