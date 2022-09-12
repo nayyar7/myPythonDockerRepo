@@ -30,4 +30,24 @@ spec:
     - protocol: TCP
       port: 5000
       targetPort: 5000
-  type: LoadBalancer
+  #type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-python-app-ingress
+spec:
+  tls:
+   - hosts:
+     - nayyar-app.com
+  rules:
+  - host: nayyar-app.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-python-app-svc
+            port:
+              number: 5000
