@@ -36,6 +36,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: my-python-app-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
   - host: nayyar-app.com
@@ -47,4 +50,4 @@ spec:
           service:
             name: my-python-app-svc
             port:
-              number: 5000
+              number: 80
