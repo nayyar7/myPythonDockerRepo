@@ -37,13 +37,16 @@ kind: Ingress
 metadata:
   name: my-python-app-ingress
   namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /static/$2
 spec:
   ingressClassName: nginx
   rules:
   - host: nayyar-app.com
     http:
       paths:
-      - path: /
+      - path: /static(/|$)(.*)
         pathType: Prefix
         backend:
           service:
