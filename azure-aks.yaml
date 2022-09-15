@@ -37,8 +37,6 @@ kind: Ingress
 metadata:
   name: my-python-app-ingress
   namespace: default
-  annotations:
-    kubernetes.io/ingress.class: nginx
 spec:
   ingressClassName: nginx
   rules:
