@@ -53,3 +53,17 @@ spec:
             name: my-python-app-svc
             port:
               number: 80
+      - path: /hello-world-two(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: my-python-app-svc
+            port:
+              number: 80
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: my-python-app-svc
+            port:
+              number: 80
