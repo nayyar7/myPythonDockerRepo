@@ -41,10 +41,10 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - example.com
-    secretName: my-python-app-tls
+  #tls:
+  #- hosts:
+    #- example.com
+    #secretName: my-python-app-tls
   rules:
   - http:
       paths:
