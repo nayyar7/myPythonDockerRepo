@@ -42,9 +42,9 @@ metadata:
 spec:
   ingressClassName: nginx
   tls:
-   - hosts:
-     - example.com
-     secretName: my-python-app-tls
+  - hosts:
+    - example.com
+    secretName: my-python-app-tls
   rules:
   - http:
       paths:
