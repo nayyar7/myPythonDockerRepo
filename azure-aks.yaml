@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: mypythondockerrepo
-        #image: acrnayyar.azurecr.io/nayyar7/mypythondockerrepo
-        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        image: acrnayyar.azurecr.io/nayyar7/mypythondockerrepo
+        #image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
 # service type loadbalancer       
