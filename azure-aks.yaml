@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: mypythondockerrepo
-        image: acrnayyar.azurecr.io/nayyar7/mypythondockerrepo
-        #image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        #image: acrnayyar.azurecr.io/nayyar7/mypythondockerrepo
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
 # service type loadbalancer       
@@ -47,20 +47,6 @@ spec:
   - http:
       paths:
       - path: /hello-world-one(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: my-python-app-svc
-            port:
-              number: 80
-      - path: /hello-world-two(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: my-python-app-svc
-            port:
-              number: 80
-      - path: /(.*)
         pathType: Prefix
         backend:
           service:
