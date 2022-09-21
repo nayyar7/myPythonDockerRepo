@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
       - name: mypythondockerrepo
-        #image: acrnayyar.azurecr.io/nayyar7/mypythondockerrepo
-        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        image: acrnayyar.azurecr.io/nayyar7/mypythondockerrepo
+        #image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
-        - containerPort: 80
+        - containerPort: 5000
 # service type loadbalancer       
 ---
 apiVersion: v1
@@ -30,7 +30,7 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 5000
   type: ClusterIP
 ---
 apiVersion: networking.k8s.io/v1
@@ -38,29 +38,18 @@ kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - example.com
+    secretName: my-python-app-tls
   rules:
   - http:
       paths:
-      - path: /hello-world-one(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: my-python-app-svc
-            port:
-              number: 80
-      - path: /hello-world-two(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: my-python-app-svc
-            port:
-              number: 80
-      - path: /(.*)
+      - path: /
         pathType: Prefix
         backend:
           service:
