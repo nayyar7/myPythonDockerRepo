@@ -38,14 +38,13 @@ kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - example.com
-    secretName: my-python-app-tls
+  #tls:
+  #- hosts:
+    #- example.com
+    #secretName: my-python-app-tls
   rules:
   - http:
       paths:
